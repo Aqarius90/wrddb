@@ -1,34 +1,25 @@
 {
   "files": {
-    "main.css": "/wrddb/static/css/main.8321472c.chunk.css",
-    "main.js": "/wrddb/static/js/main.c5ac63a9.chunk.js",
-    "main.js.map": "/wrddb/static/js/main.c5ac63a9.chunk.js.map",
+    "main.css": "/wrddb/static/css/main.2376b83a.chunk.css",
+    "main.js": "/wrddb/static/js/main.fc0081e5.chunk.js",
+    "main.js.map": "/wrddb/static/js/main.fc0081e5.chunk.js.map",
     "runtime-main.js": "/wrddb/static/js/runtime-main.dc30bb32.js",
     "runtime-main.js.map": "/wrddb/static/js/runtime-main.dc30bb32.js.map",
     "static/css/2.8fd58438.chunk.css": "/wrddb/static/css/2.8fd58438.chunk.css",
-    "static/js/2.5e8832dd.chunk.js": "/wrddb/static/js/2.5e8832dd.chunk.js",
-    "static/js/2.5e8832dd.chunk.js.map": "/wrddb/static/js/2.5e8832dd.chunk.js.map",
+    "static/js/2.9bb56724.chunk.js": "/wrddb/static/js/2.9bb56724.chunk.js",
+    "static/js/2.9bb56724.chunk.js.map": "/wrddb/static/js/2.9bb56724.chunk.js.map",
     "static/js/3.2cf8a691.chunk.js": "/wrddb/static/js/3.2cf8a691.chunk.js",
     "static/js/3.2cf8a691.chunk.js.map": "/wrddb/static/js/3.2cf8a691.chunk.js.map",
     "index.html": "/wrddb/index.html",
     "static/css/2.8fd58438.chunk.css.map": "/wrddb/static/css/2.8fd58438.chunk.css.map",
-    "static/css/main.8321472c.chunk.css.map": "/wrddb/static/css/main.8321472c.chunk.css.map",
-    "static/js/2.5e8832dd.chunk.js.LICENSE.txt": "/wrddb/static/js/2.5e8832dd.chunk.js.LICENSE.txt",
-    "static/media/BD.eab7bc67.png": "/wrddb/static/media/BD.eab7bc67.png",
-    "static/media/COM.70f00b81.png": "/wrddb/static/media/COM.70f00b81.png",
-    "static/media/DDR.71ca4d70.png": "/wrddb/static/media/DDR.71ca4d70.png",
-    "static/media/LJ.9e471a70.png": "/wrddb/static/media/LJ.9e471a70.png",
-    "static/media/NORAD.56c4786f.png": "/wrddb/static/media/NORAD.56c4786f.png",
-    "static/media/NSWP.1849ab1b.png": "/wrddb/static/media/NSWP.1849ab1b.png",
-    "static/media/RD.02b70a5c.png": "/wrddb/static/media/RD.02b70a5c.png",
-    "static/media/REDFOR.76d00398.png": "/wrddb/static/media/REDFOR.76d00398.png",
-    "static/media/USA.e6bf8c1a.png": "/wrddb/static/media/USA.e6bf8c1a.png"
+    "static/css/main.2376b83a.chunk.css.map": "/wrddb/static/css/main.2376b83a.chunk.css.map",
+    "static/js/2.9bb56724.chunk.js.LICENSE.txt": "/wrddb/static/js/2.9bb56724.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.dc30bb32.js",
     "static/css/2.8fd58438.chunk.css",
-    "static/js/2.5e8832dd.chunk.js",
-    "static/css/main.8321472c.chunk.css",
-    "static/js/main.c5ac63a9.chunk.js"
+    "static/js/2.9bb56724.chunk.js",
+    "static/css/main.2376b83a.chunk.css",
+    "static/js/main.fc0081e5.chunk.js"
   ]
 }
