@@ -1,0 +1,180 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
+    "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+.tab-scroll {
+  height: 935px;
+  overflow-y: auto;
+}
+body {
+  background-color: black;
+  background: url(https://i.imgur.com/SuzVQJs.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  min-height: 100vh;
+  height: 100;
+}
+.gray {
+  filter: grayscale(80%);
+}
+.xp-raise {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+}
+.txt-price {
+  position: absolute;
+  color: gold;
+  bottom: 2px;
+  left: 2px;
+  margin-bottom: 0;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+.nat-flag {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  height: 20px;
+}
+.txt-avail {
+  position: absolute;
+  color: white;
+  bottom: 2px;
+  left: 50%;
+  margin-bottom: 0;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+p,
+tr {
+  font-size: 0.8rem;
+  margin: 0.2rem;
+}
+.table-unit {
+  height: 30px;
+}
+.table-flag {
+  height: 30px;
+  padding: 0.25rem;
+}
+.table-sm th,
+.table-sm td {
+  padding: 0rem;
+}
+
+.popup-unit-panel {
+  position: absolute;
+  left: 0%;
+  width: 100%;
+  z-index: 1;
+}
+.popup-unit {
+  position: absolute;
+  right: 0%;
+  width: 100%;
+  z-index: 2;
+}
+@media (min-width: 576px) {
+  .popup-unit {
+    position: absolute;
+    right: 0%;
+    width: 95%;
+    z-index: 2;
+  }
+}
+@media (min-width: 768px) {
+  .popup-unit {
+    position: absolute;
+    right: 0%;
+    width: 70%;
+    z-index: 2;
+  }
+}
+@media (min-width: 992px) {
+  .popup-unit {
+    position: absolute;
+    right: 0%;
+    width: 55%;
+    z-index: 2;
+  }
+}
+@media (min-width: 1200px) {
+  .popup-unit {
+    position: absolute;
+    right: 0%;
+    width: 45%;
+    z-index: 2;
+  }
+}
+
+.popup-close {
+  position: absolute;
+  top: 15px;
+  left: 10px;
+  font-weight: 900;
+}
+
+h1 {
+  font-size: 1.5rem;
+}
+@media (min-width: 576px) {
+  h1 {
+    font-size: 2rem;
+  }
+}
+@media (min-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+}
+@media (min-width: 992px) {
+  h1 {
+    font-size: 2rem;
+  }
+}
+@media (min-width: 1200px) {
+  h1 {
+    font-size: 3rem;
+  }
+}
+
+h3 {
+  font-size: 1rem;
+}
+@media (min-width: 576px) {
+  h3 {
+    font-size: 1.25rem;
+  }
+}
+@media (min-width: 768px) {
+  h3 {
+    font-size: 1.5rem;
+  }
+}
+@media (min-width: 992px) {
+  h3 {
+    font-size: 1.75rem;
+  }
+}
+@media (min-width: 1200px) {
+  h3 {
+    font-size: 1.75rem;
+  }
+}
+
+@media (min-width: 576px) {
+}
+@media (min-width: 768px) {
+}
+@media (min-width: 992px) {
+}
+@media (min-width: 1200px) {
+}
