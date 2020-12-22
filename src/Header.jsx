@@ -2,13 +2,14 @@ import React, {useState} from "react";
 import { useHistory, useParams } from "react-router-dom";
 import flags from "./js/flags";
 
-function Header({DB, API}) {
+function Header({API, hide}) {
   let params = useParams();
   let history = useHistory();
   const [showUploadPanel, setUploadPanel] = useState(false);
   const [parsed, setParsed] = useState(null);
 
   function loadFile() {
+    global.log("do loadfile");
     const fileSelector = document.createElement("input");
     fileSelector.setAttribute("type", "file");
     fileSelector.onchange = handleFileSelect;
@@ -16,20 +17,22 @@ function Header({DB, API}) {
     fileSelector.click();
   }
   function handleFileSelect(evt) {
+    global.log("do handleFileSelect");
     let replayFile = evt.target.files[0];
     let reader = new FileReader();
     reader.onload = () => {
       let enc = new TextDecoder("utf-8");
       let blob = reader.result;
       let data = enc.decode(blob);
-      data = parseReplay(data, DB);
+      data = parseReplay(data);
       //setParsed({ meta: data, blob: blob });
       setParsed(data);
       setUploadPanel(true);
     };
     reader.readAsArrayBuffer(replayFile);
   }
-  function parseReplay(x, DB) {
+  function parseReplay(x) {
+    global.log("do parseReplay");
     let HeaderStart = x.indexOf('"game"');
     let HeaderEnd = x.indexOf("}star");
     let header = x.slice(HeaderStart, HeaderEnd);
@@ -129,6 +132,7 @@ function Header({DB, API}) {
             <button className="btn btn-primary btn-block" onClick={()=>loadFile()}>Parse replay</button>
           </div>
           <div className="col-md-12 col-6">
+          <button className="btn btn-outline-secondary btn-block d-md-none" onClick={hide}>Hide header</button>
           </div>
         </div>
       </div>
@@ -151,6 +155,7 @@ function Header({DB, API}) {
 }
 
 function parseNation(code){
+  global.log("do parseNation");
   switch (code.slice(0,3)) {    
     case "@AM": return flags.USA;
     case "@As": return flags.UK;

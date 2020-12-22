@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import pako from "pako";
 import './App.css';
 import {firestore} from "./js/Firestore";
@@ -38,7 +38,8 @@ global.log = function (str, data){
 function App() {
   //renders
   const [DB, setDB] = useState(null);
-  if (!DB) {
+
+  useEffect(() => {
     firestore
     .collection("zip")
     .doc("WRD")
@@ -49,6 +50,9 @@ function App() {
       );
       setDB(inflated);
     });
+  }, []);
+
+  if (!DB) {
     return (
       <div className="card">
         <div className="d-flex justify-content-center">
@@ -58,31 +62,34 @@ function App() {
         </div>
       </div>
     );
+  } else {
+    return (
+      <Router basename="/wrddb">
+        <div className="container">
+          <Switch>
+            <Route path="/:Page?/:code*">
+              <RedirectWrapper DB={DB}></RedirectWrapper>
+            </Route>
+          </Switch>
+        </div>
+      </Router>
+    );
   }
-  return (
-    <Router basename="/wrddb">
-      <div className="container">
-        <Switch>
-          <Route path="/:Page?/:code*">
-            <RedirectWrapper DB={DB}></RedirectWrapper>
-          </Route>
-        </Switch>
-      </div>
-    </Router>
-  );
 }
 
 function RedirectWrapper({DB}) {
   let params = useParams();
+  let history = useHistory();
+
   let setCode = (x) => {
     history.push("/" + params.Page + "/" + x);
   };
 
-  let history = useHistory();
   if(!params.Page){
     params.Page = "DeckBuilder";
     history.push("/" + params.Page);
   }
+  
   if (window.location.search && !params.Page) {
     let l = window.location.search.split("/");
     //window.location.search = "";
@@ -93,6 +100,7 @@ function RedirectWrapper({DB}) {
     }
     setCode(params.code);
   }
+  
   return <WRD Honey={{ params: params, DB:DB }} API={{setCode: setCode }} />
 }
 
