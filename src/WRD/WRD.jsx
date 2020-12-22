@@ -9,23 +9,19 @@ import { useParams, Redirect } from "react-router-dom";
 import Header from "../Header";
 
 function WRD({ Honey, API }) {
-
-  let DB =  _.cloneDeep(Honey.DB); //honey DB is single units for DB, plain DB is loaded, for builder
-                                //this will come back to bite me.
-  DB.units.forEach(u=>{ //load transports into unit card
-      u.Transporters = u.Transporters.map(e=>DB.units.find(ek=> ek.ID === e));
-    }
-  );
-  let deckAPI = {}; //function holder. I don't have the energy to rewrite it into a reducer
-  let params = useParams();
+  const [DB,setDB] = useState(null);
+  //const deckAPI = {};//function holder. I don't have the energy to rewrite it into a reducer
+  const deckAPI ={};
   deckAPI.setCode = API.setCode;
+  let params = useParams();
+  const [deck, setDeck] = useState(null);
+  const [hide, setHide] = useState(false); //hides the header, not important
   //deck setters
-  const [deck, setDeck] = useState(new DeckAssembly(DB));
   deckAPI.decode = code => {
     //set deck via deck code
     try {
       let newdeck = new DeckAssembly(DB);
-      setDeck(newdeck.loadFromCode(code, DB));
+      setDeck(newdeck.loadFromCode(code));
       deckAPI.setCode(newdeck.DeckCode);
     } catch (error) {
       global.throw("deck decode error", 0, error);
@@ -40,7 +36,7 @@ function WRD({ Honey, API }) {
   deckAPI.setDeck = x => {
     try {
       let newdeck =  _.clone(deck);
-      setDeck(newdeck.loadFromDB(x, DB));
+      setDeck(newdeck.loadFromDB(x));
       deckAPI.setCode(newdeck.DeckCode);
     } catch (error) {
       global.throw("deck set error", 0, error);
@@ -82,13 +78,6 @@ function WRD({ Honey, API }) {
       global.throw("income set error", 0, error);
     }
   };
-
-  useEffect(() => {
-    if (params.code) {
-      deckAPI.decode(params.code);
-    }
-  }, []);
-
   deckAPI.addUnit =( vet, unit, transport, boat)=> {
     try {
       let newdeck = _.clone(deck).addUnit( vet, unit, transport, boat);
@@ -106,16 +95,49 @@ function WRD({ Honey, API }) {
     } catch (error) {
       global.throw("deleteUnit error", 0, error);
     }
-  };    
+  }; 
+
+  useEffect(() => {
+    let DatB =  _.cloneDeep(Honey.DB); //format DB for builder
+    DatB.units.forEach(u=>{ //load transports into unit card
+        u.Transporters = u.Transporters.map(e=>DatB.units.find(ek=> ek.ID === e));
+      }
+    );    
+    setDB(DatB);
+    if (params.code) {  
+      try {
+        let newdeck = new DeckAssembly(DatB);
+        setDeck(newdeck.loadFromCode(params.code));
+        API.setCode(newdeck.DeckCode);
+      } catch (error) {
+        global.throw("deck decode error", 0, error);
+      }
+    } else {
+      setDeck(new DeckAssembly(DatB))
+    }
+  }, []);
+  if (!DB) {
+    return (
+      <div className="card">
+        <div className="d-flex justify-content-center">
+          <div className="spinner-border" role="status">
+            <span className="sr-only">Loading...</span>
+          </div>
+        </div>
+      </div>
+    );
+  } 
   switch (params.Page) {
     case "DeckBuilder":     
         return (
             <>
                 <div className="card">
-                  <Header  DB={DB} API={deckAPI}/>
+                  <Header API={deckAPI} hide={()=>setHide(!hide)}/>
                 </div>
-                <DeckSelector DB={DB} Deck={deck} API={deckAPI}/>
-                <DecodeHeader Deck={deck} API ={ deckAPI}/>
+                <div className={hide?"d-none":""}>
+                  <DeckSelector DB={DB} Deck={deck} API={deckAPI}/>
+                  <DecodeHeader Deck={deck} API ={ deckAPI}/>
+                </div>
                 <DeckBuilder DB={DB} Deck={deck} API={deckAPI} />
             </>
         );
@@ -123,7 +145,7 @@ function WRD({ Honey, API }) {
         return (
           <>
             <div className="card">
-              <Header  DB={DB} decode={deckAPI.decode}/>
+              <Header API={deckAPI} hide={()=>setHide(!hide)}/>
             </div>
             <Database DB={Honey.DB}/>
           </>

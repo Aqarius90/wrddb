@@ -2,13 +2,14 @@ import React from "react";
 import {getPortrait, VetIcon } from "../../js/GUIparsers";
 
 function UnitHeader({Deck, Unit, Pack, show, add}) {
+  global.log("render UnitHeader");
   let vBon = Deck.Spec.bonus[Unit.Tab]?Deck.Spec.bonus[Unit.Tab]:0;
   let makeButton = (vet,i) => {
     let count = Math.floor(Pack.avail[vet] * Deck.Deck.bonus)
     count = count?count:0;
     return (
-      <div className="col p-0">
-        <button key={i} disabled={!count} className="btn p-0" onClick={()=>add( vet, Unit, Pack.transport, Pack.boat)}>
+      <div className="col p-0" key={i}>
+        <button  disabled={!count} className="btn p-0" onClick={()=>add( vet, Unit, Pack.transport, Pack.boat)}>
           {count}
           <VetIcon vet={vet+vBon} css={"ml-0"}></VetIcon>
         </button>

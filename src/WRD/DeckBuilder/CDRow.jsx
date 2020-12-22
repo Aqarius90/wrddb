@@ -3,13 +3,14 @@ import { getPortrait, VetIcon,NatIcon} from "../../js/GUIparsers";
 import flags from "../../js/flags";
 
 function CDRow({ Deck, Parsed, show, API }) {
+  global.log("render CDRow");
   let showCard = (x, i) => {
-    let css = "col-4 px-1 py-1 d-flex flex-column";
+    let css = "col-lg col-md-2 col-sm-3 col-4 px-1 py-1 d-flex flex-column";
     try {
       //if not an object (AKA, a card), return a number
       if (x === "X") {
         return (
-          <div className={css} key={i}>
+          <div className="col-lg col-1 px-1 py-1 d-flex flex-column" key={i}>
             <h3 className="text-center" key={i}> {x} </h3>
           </div>
         );
@@ -28,7 +29,7 @@ function CDRow({ Deck, Parsed, show, API }) {
         );
       }
       return (
-        <div className={css} key={i}>
+        <div className="col-lg col-sm-2 col-1 px-1 py-1 d-flex flex-column" key={i}>
           <h3 className="text-center" key={i}> {x} </h3>
         </div>
       );
@@ -38,27 +39,37 @@ function CDRow({ Deck, Parsed, show, API }) {
   };
   return(
     <div className="card-text row no-gutters">
-      <div className="col-lg-4 col-md-6 col-sm-12">
+          {showCard(Parsed[0])}
+          {showCard(Parsed[1])}
+          {showCard(Parsed[2])}
+          {showCard(Parsed[3])}
+          {showCard(Parsed[4])}
+          {showCard(Parsed[5])}
+          {showCard(Parsed[6])}
+          {showCard(Parsed[7])}
+          {showCard(Parsed[8])}
+      {/*
+      <div className="col-lg-4 col-md-6 com-sm-8 col-12">
         <div className="row no-gutters">
           {showCard(Parsed[0])}
           {showCard(Parsed[1])}
           {showCard(Parsed[2])}
         </div>
       </div>
-      <div className="col-lg-4 col-md-6 col-sm-12">
+      <div className="col-lg-4 col-md-6 com-sm-8 col-12">
         <div className="row no-gutters">
           {showCard(Parsed[3])}
           {showCard(Parsed[4])}
           {showCard(Parsed[5])}
         </div>
       </div>
-      <div className="col-lg-4 col-md-6 col-sm-12">
+      <div className="col-lg-4 col-md-6 com-sm-8 col-12">
         <div className="row no-gutters">
           {showCard(Parsed[6])}
           {showCard(Parsed[7])}
           {showCard(Parsed[8])}
         </div>
-      </div>
+      </div>*/}
     </div>
   );
   /*return (

@@ -126,7 +126,8 @@ class DeckAssembly{
         this.filterUnits();
         return this;
     }
-    loadFromCode(code, DB){
+    loadFromCode(code){
+        let DB = this.DB;
         let bin = parseToBin(code);
         let posc = 0;
         global.log("bin",bin);

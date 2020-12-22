@@ -63,7 +63,6 @@ function UnitList({ UnitPairs, show }) {
     }
   }
 
-  console.log("test")
   switch (sort) {
     case null:
       break;
