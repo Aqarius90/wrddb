@@ -81,7 +81,6 @@ function UnitModules({ x }) {
   const harmonica = (x)=>{
     x === show ? setShow(-1) : setShow(x);
   }
-  
   if (x != null) {
     return (
       <React.Fragment>
@@ -107,14 +106,18 @@ function UnitModules({ x }) {
                 {x.ArmorRear==="FRAG"?"⊗":x.ArmorRear}/
                 {x.ArmorTop==="FRAG"?"⊗":x.ArmorTop}
               </div>
+              <div className="col-1">
+                <span className={"badge badge-primary"}>{x.Year>1975?x.Year>1985?"A":"B":"C"}</span>
+              </div>                
               <div className="col-sm-6 col-12">
                 <div className="row">
-                  <div className="col-2 p-0"><span className={"badge " + x.Decks.includes("Motorized")?"badge-success":"badge-secondary"}>Mot</span></div>
-                  <div className="col-2 p-0"><span className={"badge " + x.Decks.includes("Armored")?"badge-success":"badge-secondary"}>Arm</span></div>
-                  <div className="col-2 p-0"><span className={"badge " + x.Decks.includes("Support")?"badge-success":"badge-secondary"}>Sup</span></div>
-                  <div className="col-2 p-0"><span className={"badge " + x.Decks.includes("Marine")?"badge-success":"badge-secondary"}>Mar</span></div>
-                  <div className="col-2 p-0"><span className={"badge " + x.Decks.includes("Mechanized")?"badge-success":"badge-secondary"}>Mec</span></div>
-                  <div className="col-2 p-0"><span className={"badge " + x.Decks.includes("Airborne")?"badge-success":"badge-secondary"}>Air</span></div>
+                  
+                  <div className="col-2 p-0"><span className={"badge " + (x.Decks.includes("Motorized")?"badge-success":"badge-secondary")}>Mot</span></div>
+                  <div className="col-2 p-0"><span className={"badge " + (x.Decks.includes("Armored")?"badge-success":"badge-secondary")}>Arm</span></div>
+                  <div className="col-2 p-0"><span className={"badge " + (x.Decks.includes("Support")?"badge-success":"badge-secondary")}>Sup</span></div>
+                  <div className="col-2 p-0"><span className={"badge " + (x.Decks.includes("Marine")?"badge-success":"badge-secondary")}>Mar</span></div>
+                  <div className="col-2 p-0"><span className={"badge " + (x.Decks.includes("Mechanized")?"badge-success":"badge-secondary")}>Mec</span></div>
+                  <div className="col-2 p-0"><span className={"badge " + (x.Decks.includes("Airborne")?"badge-success":"badge-secondary")}>Air</span></div>
                 </div>
               </div>
             </div>

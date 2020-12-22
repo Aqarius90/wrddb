@@ -208,11 +208,11 @@ function debloat(x){
     {code:108, Side:1, Points:15, bonus:1.30, Nation: "CZS", nations:["CZS"]},
     {code:140, Side:1, Points:15, bonus:1.30, Nation: "PRC", nations:["PRC"]},
     {code:172, Side:1, Points:15, bonus:1.40, Nation: "DPRK", nations:["DPRK"]},
-    {code:204, Side:1, Points:15, bonus:1.20, Nation: "FIN", nations:["Finland"]},
+    {code:204, Side:1, Points:15, bonus:1.20, Nation: "FIN", nations:["FIN"]},
     {code:236, Side:1, Points:15, bonus:1.15, Nation: "YU", nations:["YU"]},
     {code:292, Side:1, Points:10, bonus:1.20, Nation: "Red Dragons", nations:["PRC","DPRK"]},
     {code:293, Side:1, Points:10, bonus:1.0, Nation: "NSWP", nations:["DDR","POL","CZS"]},
-    {code:298, Side:1, Points:10, bonus:1.10, Nation: "FINPOL", nations:["POL","Finland"]},
+    {code:298, Side:1, Points:10, bonus:1.10, Nation: "FINPOL", nations:["POL","FIN"]},
     {code:299, Side:1, Points:10, bonus:1.0, Nation: "Entente", nations:["CZS","YU"]},
     {code:300, Side:1, Points:0, bonus:1.0, Nation: "REDFOR", nations:[]}
   ];
@@ -332,7 +332,7 @@ function debloat(x){
   let era = [
     {code:0, str:"C", bonus:10, year:1975},
     {code:1, str:"B", bonus:5, year:1985},
-    {code:2, str:"A", bonus:0, year:2000}
+    {code:2, str:"A", bonus:0, year:9001}
   ];
 
   /*add FOBs*/

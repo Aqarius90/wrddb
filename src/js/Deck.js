@@ -85,12 +85,12 @@ class DeckAssembly{
     }
     filterUnits(){
         this.Units = this.fullUnits;
-        if (!this.Spec.str === "General"){
+        if (!(this.Spec.str === "General")){
             this.Units = this.Units.filter(e=>{
-                return e.Decks.includes(this.Spec.str)
+                return !e.Decks || e.Decks.includes(this.Spec.str) // some units are placeholders. :eugen:
             })
         }
-        if (!this.Era.str === "A"){
+        if (!(this.Era.str === "A")){
             this.Units = this.Units.filter(e=>this.Era.year > e.Year);
         }
         this.Pairs = {LOG:[],INF:[],SUP:[],TNK:[],REC:[],VHC:[],HEL:[],PLA:[],SHP:[]};
