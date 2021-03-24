@@ -17,7 +17,7 @@ export function getPortrait(x, css) {
             ".png"
           }
           onError={
-            ()=>global.throw("getPortrait error",x)
+            ()=>global.throw("getPortrait error",process.env.PUBLIC_URL)
           }
           className={css}
           alt="unitPortrait"

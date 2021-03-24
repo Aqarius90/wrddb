@@ -1,7 +1,6 @@
 import _ from "lodash";
 import pako from "pako";
 import data from '../final_data.json';
-import csv  from "../final_data.csv";
 import firebase from "./Firestore";
 import { v4 } from 'uuid';
 
@@ -179,7 +178,9 @@ function debloat(x){
           break;
       }
     }
-  )
+  ) 
+  //deprec
+  x = x.filter(e=>!(["PETIT BATO", "Trabant01", "SoldatUSLe", "ldatUSLege", "SoldatUSLo", "AH-1 COBRA", "AH-1 COBRA SIDEWINDER", "HN-5C Truck","SoldatAlle","Mi-24"].includes(e.Name)));
   let decks = [
     {code:12, Side:0, Points:15, bonus:1.10, Nation: "USA", nations:["USA"]},
     {code:44, Side:0, Points:15, bonus:1.20, Nation: "UK", nations:["UK"]},

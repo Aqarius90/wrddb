@@ -87,7 +87,7 @@ class DeckAssembly{
         this.Units = this.fullUnits;
         if (!(this.Spec.str === "General")){
             this.Units = this.Units.filter(e=>{
-                return !e.Decks || e.Decks.includes(this.Spec.str) // some units are placeholders. :eugen:
+                return e.Decks.includes(this.Spec.str) // some units are placeholders. :eugen:
             })
         }
         if (!(this.Era.str === "A")){
@@ -121,7 +121,7 @@ class DeckAssembly{
         } else {
             this.fullUnits = this.DB.units.filter(e=>this.Deck.nations.includes(e.MotherCountry));
         }
-        let ships = this.DB.units.filter(e=>(e.Tab==="SHP" && e.Nationalite===this.Deck.Side));
+        let ships = this.DB.units.filter(e=>(e.Tab==="SHP" && e.Nationalite===this.Deck.Side && e.Name!="PETIT BATO"));
         this.fullUnits = this.fullUnits.concat(ships);
         this.filterUnits();
         return this;

@@ -51,6 +51,7 @@ function App() {
       setDB(inflated);
     });
   }, []);
+  console.log(window.location)
 
   if (!DB) {
     return (
@@ -78,19 +79,15 @@ function App() {
 }
 
 function RedirectWrapper({DB}) {
+  
   let params = useParams();
   let history = useHistory();
-
+  console.log(window.location.search);
   let setCode = (x) => {
     history.push("/" + params.Page + "/" + x);
   };
-
-  if(!params.Page){
-    params.Page = "DeckBuilder";
-    history.push("/" + params.Page);
-  }
   
-  if (window.location.search && !params.Page) {
+  if (window.location.search){/* && !params.Page) {*/
     let l = window.location.search.split("/");
     //window.location.search = "";
     params.Page = l.length > 1 ? l[1] : "";
@@ -98,7 +95,14 @@ function RedirectWrapper({DB}) {
     for (let i = 3; i < l.length; i++) {
       params.code += "/" + l[i];
     }
+    console.log(params);
     setCode(params.code);
+  }
+
+  console.log(params);
+  if(!params.Page){
+    params.Page = "DeckBuilder";
+    history.push("/" + params.Page);
   }
   
   return <WRD Honey={{ params: params, DB:DB }} API={{setCode: setCode }} />
