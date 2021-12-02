@@ -331,7 +331,7 @@ function debloat(x){
       }
   ];
   let era = [
-    {code:0, str:"C", bonus:10, year:1975},
+    {code:0, str:"C", bonus:10, year:1980},
     {code:1, str:"B", bonus:5, year:1985},
     {code:2, str:"A", bonus:0, year:9001}
   ];
